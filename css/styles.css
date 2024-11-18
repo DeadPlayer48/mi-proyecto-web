@@ -22,8 +22,27 @@
 
   @media (max-width: 768px) {
     #container {
-      flex-direction: column; /* Cambia la dirección a columna en pantallas pequeñas */
-      align-items: flex-start; /* Alinea la imagen y el formulario a la izquierda */
+        flex-direction: column;
+        align-items: center;
     }
-  }
+
+    #board img {
+        max-width: 100%;
+    }
+
+    #form {
+        align-items: center;
+        gap: 5px;
+    }
+
+    label {
+        font-size: 16px;
+    }
+
+    button {
+        width: 100%; /* Hacer el botón más grande en pantallas pequeñas */
+    }
+}
+
+
   

@@ -1,7 +1,7 @@
-// Esperar a que el documento esté listo
 document.addEventListener("DOMContentLoaded", function() {
     const avatar = document.getElementById("avatar");
     const form = document.getElementById("form");
+    const startButton = document.getElementById("startButton");
 
     // Función para cambiar la imagen
     form.addEventListener("change", function(event) {
@@ -10,6 +10,12 @@ document.addEventListener("DOMContentLoaded", function() {
             // Cambiar la imagen según el valor seleccionado
             avatar.src = `img/avatar${optionValue}.svg`;
         }
+    });
+
+    // Lógica para mostrar el formulario al presionar "Iniciar"
+    startButton.addEventListener("click", function() {
+        form.classList.remove("d-none");  // Muestra el formulario
+        startButton.classList.add("d-none");  // Oculta el botón "Iniciar"
     });
 });
 
@@ -22,7 +28,4 @@ function clearSelection() {
     // Cambiar la imagen a avatar0.svg al quitar la selección
     const avatar = document.getElementById("avatar");
     avatar.src = `img/avatar0.svg`;
-
-    // Si tienes un elemento que muestra el valor actual, puedes restablecerlo a '0'
-    document.getElementById('selectedValue').textContent = '0';
 }

@@ -17,26 +17,33 @@
       <img id="avatar" src="img/avatar0.svg" alt="Imagen de ejemplo" class="img-fluid rounded shadow">
     </div>
     
-    <!-- Formulario a la derecha de la imagen -->
-    <form id="form" class="card p-4 shadow">
-      <h5 class="mb-3">Seleccione una opción:</h5>
-      <label class="form-check mb-2">
-        <input type="radio" class="form-check-input" name="option" value="1"> Opción 1
-      </label>
-      <label class="form-check mb-2">
-        <input type="radio" class="form-check-input" name="option" value="2"> Opción 2
-      </label>
-      <label class="form-check mb-2">
-        <input type="radio" class="form-check-input" name="option" value="3"> Opción 3
-      </label>
-      <label class="form-check mb-2">
-        <input type="radio" class="form-check-input" name="option" value="4"> Opción 4
-      </label>
-      <label class="form-check mb-3">
-        <input type="radio" class="form-check-input" name="option" value="5"> Opción 5
-      </label>
-      <button type="button" class="btn btn-danger" onclick="clearSelection()">Quitar Elección</button>
-    </form>
+    <!-- Botón de Iniciar -->
+    <div id="start-section" class="d-flex justify-content-center">
+      <button id="start-button" class="btn btn-primary">Iniciar</button>
+    </div>
+    
+    <!-- Formulario a la derecha de la imagen, inicialmente oculto -->
+    <div id="form-section" class="d-none">
+      <form id="form" class="card p-4 shadow">
+        <h5 class="mb-3">Seleccione una opción:</h5>
+        <label class="form-check mb-2">
+          <input type="radio" class="form-check-input" name="option" value="1"> Opción 1
+        </label>
+        <label class="form-check mb-2">
+          <input type="radio" class="form-check-input" name="option" value="2"> Opción 2
+        </label>
+        <label class="form-check mb-2">
+          <input type="radio" class="form-check-input" name="option" value="3"> Opción 3
+        </label>
+        <label class="form-check mb-2">
+          <input type="radio" class="form-check-input" name="option" value="4"> Opción 4
+        </label>
+        <label class="form-check mb-3">
+          <input type="radio" class="form-check-input" name="option" value="5"> Opción 5
+        </label>
+        <button type="button" class="btn btn-danger" onclick="clearSelection()">Quitar Elección</button>
+      </form>
+    </div>
   </div>
 </body>
 </html>

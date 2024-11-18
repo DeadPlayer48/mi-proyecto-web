@@ -10,39 +10,133 @@
   <title>OVA 1</title>
 </head>
 <body class="bg-light">
-  <!-- Contenedor principal -->
-  <div id="container" class="container py-5 d-flex flex-column flex-md-row align-items-center justify-content-center gap-4">
-    <!-- Imagen que irá al lado del formulario -->
-    <div id="board" class="text-center mb-4 mb-md-0">
-      <img id="avatar" src="img/avatar0.svg" alt="Imagen de ejemplo" class="img-fluid rounded shadow">
+  <div id="mainContainer" class="container py-5 d-flex flex-column align-items-center justify-content-center gap-4">
+    <!-- Página de inicio -->
+    <div id="startPage" class="text-center">
+      <h3>¡Bienvenido al Juego de Formulario!</h3>
+      <button id="startButton" class="btn btn-primary">Iniciar</button>
     </div>
     
-    <!-- Botón de Iniciar -->
-    <div id="start-section" class="d-flex justify-content-center">
-      <button id="start-button" class="btn btn-primary">Iniciar</button>
+    <!-- Página de selección de subtemática -->
+    <div id="topicSelectionPage" class="d-none text-center">
+      <h4>Seleccione una subtemática:</h4>
+      <button class="btn btn-success" id="topic1Button">Subtemática 1</button>
+      <button class="btn btn-success" id="topic2Button">Subtemática 2</button>
+      <button class="btn btn-success" id="topic3Button">Subtemática 3</button>
+      <br><br>
+      <button class="btn btn-danger" id="backToStartButton">Volver al inicio</button>
     </div>
     
-    <!-- Formulario a la derecha de la imagen, inicialmente oculto -->
-    <div id="form-section" class="d-none">
-      <form id="form" class="card p-4 shadow">
-        <h5 class="mb-3">Seleccione una opción:</h5>
-        <label class="form-check mb-2">
-          <input type="radio" class="form-check-input" name="option" value="1"> Opción 1
-        </label>
-        <label class="form-check mb-2">
-          <input type="radio" class="form-check-input" name="option" value="2"> Opción 2
-        </label>
-        <label class="form-check mb-2">
-          <input type="radio" class="form-check-input" name="option" value="3"> Opción 3
-        </label>
-        <label class="form-check mb-2">
-          <input type="radio" class="form-check-input" name="option" value="4"> Opción 4
-        </label>
-        <label class="form-check mb-3">
-          <input type="radio" class="form-check-input" name="option" value="5"> Opción 5
-        </label>
-        <button type="button" class="btn btn-danger" onclick="clearSelection()">Quitar Elección</button>
-      </form>
+    <!-- Página de formulario -->
+    <div id="formPage" class="d-none">
+      <div class="d-flex justify-content-between align-items-center">
+        <!-- Imagen que cambiará según la opción seleccionada -->
+        <div id="board" class="text-center mb-4 mb-md-0 me-4">
+          <img id="avatar" src="img/avatar_0.svg" alt="Imagen de ejemplo" class="img-fluid rounded shadow">
+        </div>
+
+        <!-- Formulario 1 -->
+        <form id="form1" class="card p-4 shadow d-none">
+          <h4>Formulario 1 - Seleccione una opción:</h4>
+          <label class="form-check mb-2">
+            <input type="radio" class="form-check-input" name="option1" value="1" onclick="changeAvatar(1); toggleAudioIcon(1, 1)"> Opción 1
+            <button type="button" class="btn btn-link d-none" id="audioButton1" onclick="playAudio('audio1')">🔊</button>
+            <audio id="audio1" src="audio/audio1.mp3"></audio>
+          </label>
+          <label class="form-check mb-2">
+            <input type="radio" class="form-check-input" name="option1" value="2" onclick="changeAvatar(2); toggleAudioIcon(2, 1)"> Opción 2
+            <button type="button" class="btn btn-link d-none" id="audioButton2" onclick="playAudio('audio2')">🔊</button>
+            <audio id="audio2" src="audio/audio2.mp3"></audio>
+          </label>
+          <label class="form-check mb-2">
+            <input type="radio" class="form-check-input" name="option1" value="3" onclick="changeAvatar(3); toggleAudioIcon(1, 1)"> Opción 3
+            <button type="button" class="btn btn-link d-none" id="audioButton3" onclick="playAudio('audio3')">🔊</button>
+            <audio id="audio3" src="audio/audio3.mp3"></audio>
+          </label>
+          <label class="form-check mb-2">
+            <input type="radio" class="form-check-input" name="option1" value="4" onclick="changeAvatar(4); toggleAudioIcon(2, 1)"> Opción 4
+            <button type="button" class="btn btn-link d-none" id="audioButton4" onclick="playAudio('audio4')">🔊</button>
+            <audio id="audio4" src="audio/audio4.mp3"></audio>
+          </label>
+          <label class="form-check mb-2">
+            <input type="radio" class="form-check-input" name="option1" value="5" onclick="changeAvatar(5); toggleAudioIcon(2, 1)"> Opción 5
+            <button type="button" class="btn btn-link d-none" id="audioButton5" onclick="playAudio('audio5')">🔊</button>
+            <audio id="audio5" src="audio/audio5.mp3"></audio>
+          </label>
+          <!-- Más opciones... -->
+          <button type="button" class="btn btn-danger" onclick="clearSelection()">Quitar Elección</button>
+          <br>
+          <button class="btn btn-danger" id="backToStartButtonForm">Volver al inicio</button>
+        </form>
+
+        <!-- Formulario 2 -->
+        <form id="form2" class="card p-4 shadow d-none">
+          <h4>Formulario 2 - Seleccione una opción:</h4>
+          <label class="form-check mb-2">
+            <input type="radio" class="form-check-input" name="option2" value="1" onclick="changeAvatar(1); toggleAudioIcon(1, 2)"> Opción 1
+            <button type="button" class="btn btn-link d-none" id="audioButton11" onclick="playAudio('audio11')">🔊</button>
+            <audio id="audio11" src="audio/audio11.mp3"></audio>
+          </label>
+          <label class="form-check mb-2">
+            <input type="radio" class="form-check-input" name="option2" value="2" onclick="changeAvatar(2); toggleAudioIcon(2, 2)"> Opción 2
+            <button type="button" class="btn btn-link d-none" id="audioButton12" onclick="playAudio('audio12')">🔊</button>
+            <audio id="audio12" src="audio/audio12.mp3"></audio>
+          </label>
+          <label class="form-check mb-2">
+            <input type="radio" class="form-check-input" name="option2" value="3" onclick="changeAvatar(3); toggleAudioIcon(1, 1)"> Opción 3
+            <button type="button" class="btn btn-link d-none" id="audioButton13" onclick="playAudio('audio13')">🔊</button>
+            <audio id="audio13" src="audio/audio13.mp3"></audio>
+          </label>
+          <label class="form-check mb-2">
+            <input type="radio" class="form-check-input" name="option2" value="4" onclick="changeAvatar(4); toggleAudioIcon(2, 1)"> Opción 4
+            <button type="button" class="btn btn-link d-none" id="audioButton14" onclick="playAudio('audio14')">🔊</button>
+            <audio id="audio14" src="audio/audio14.mp3"></audio>
+          </label>
+          <label class="form-check mb-2">
+            <input type="radio" class="form-check-input" name="option2" value="5" onclick="changeAvatar(5); toggleAudioIcon(2, 1)"> Opción 5
+            <button type="button" class="btn btn-link d-none" id="audioButton15" onclick="playAudio('audio15')">🔊</button>
+            <audio id="audio15" src="audio/audio15.mp3"></audio>
+          </label>
+          <!-- Más opciones... -->
+          <button type="button" class="btn btn-danger" onclick="clearSelection()">Quitar Elección</button>
+          <br>
+          <button class="btn btn-danger" id="backToStartButtonForm2">Volver al inicio</button>
+        </form>
+
+        <!-- Formulario 3 -->
+        <form id="form3" class="card p-4 shadow d-none">
+          <h4>Formulario 3 - Seleccione una opción:</h4>
+          <label class="form-check mb-2">
+            <input type="radio" class="form-check-input" name="option3" value="1" onclick="changeAvatar(1); toggleAudioIcon(1, 3)"> Opción 1
+            <button type="button" class="btn btn-link d-none" id="audioButton21" onclick="playAudio('audio21')">🔊</button>
+            <audio id="audio21" src="audio/audio21.mp3"></audio>
+          </label>
+          <label class="form-check mb-2">
+            <input type="radio" class="form-check-input" name="option3" value="2" onclick="changeAvatar(2); toggleAudioIcon(2, 3)"> Opción 2
+            <button type="button" class="btn btn-link d-none" id="audioButton22" onclick="playAudio('audio22')">🔊</button>
+            <audio id="audio22" src="audio/audio22.mp3"></audio>
+          </label>
+          <label class="form-check mb-2">
+            <input type="radio" class="form-check-input" name="option3" value="3" onclick="changeAvatar(3); toggleAudioIcon(1, 1)"> Opción 3
+            <button type="button" class="btn btn-link d-none" id="audioButton23" onclick="playAudio('audio23')">🔊</button>
+            <audio id="audio23" src="audio/audio23.mp3"></audio>
+          </label>
+          <label class="form-check mb-2">
+            <input type="radio" class="form-check-input" name="option3" value="4" onclick="changeAvatar(4); toggleAudioIcon(2, 1)"> Opción 4
+            <button type="button" class="btn btn-link d-none" id="audioButton24" onclick="playAudio('audio24')">🔊</button>
+            <audio id="audio24" src="audio/audio24.mp3"></audio>
+          </label>
+          <label class="form-check mb-2">
+            <input type="radio" class="form-check-input" name="option3" value="5" onclick="changeAvatar(5); toggleAudioIcon(2, 1)"> Opción 5
+            <button type="button" class="btn btn-link d-none" id="audioButton25" onclick="playAudio('audio25')">🔊</button>
+            <audio id="audio25" src="audio/audio25.mp3"></audio>
+          </label>
+          <!-- Más opciones... -->
+          <button type="button" class="btn btn-danger" onclick="clearSelection()">Quitar Elección</button>
+          <br>
+          <button class="btn btn-danger" id="backToStartButtonForm3">Volver al inicio</button>
+        </form>
+      </div>
     </div>
   </div>
 </body>

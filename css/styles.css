@@ -1,48 +1,66 @@
-/* Contenedor que usará flexbox para alinear la imagen y el formulario en paralelo */
+/* Contenedor que usa flexbox para organizar los elementos en columnas o filas según el tamaño de la pantalla */
 #container {
-    display: flex;
-    align-items: center; /* Centra verticalmente ambos elementos */
-    justify-content: center; /* Centra horizontalmente */
-    gap: 20px; /* Espacio entre la imagen y el formulario */
-    padding: 20px;
-  }
-
-  /* Asegura que la imagen no se desborde y se ajuste de manera proporcional */
-  #board img {
-    max-width: 600px; /* Establece el ancho máximo de la imagen */
-    height: auto; /* Mantiene la proporción de la imagen */
-  }
-
-  /* Estilo para el formulario */
-  #form {
-    display: flex;
-    flex-direction: column;
-    gap: 10px; /* Espacio entre las opciones del formulario */
-  }
-
-  @media (max-width: 768px) {
-    #container {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    #board img {
-        max-width: 100%;
-    }
-
-    #form {
-        align-items: center;
-        gap: 5px;
-    }
-
-    label {
-        font-size: 16px;
-    }
-
-    button {
-        width: 100%; /* Hacer el botón más grande en pantallas pequeñas */
-    }
+  display: flex;
+  flex-wrap: wrap; /* Permite que los elementos se distribuyan si el espacio es pequeño */
+  align-items: flex-start; /* Alinea los elementos al principio del contenedor */
+  justify-content: center;
+  gap: 30px; /* Agrega espacio entre los elementos */
+  padding: 20px;
 }
 
+/* Estilo del contenedor de la imagen */
+#board {
+  background-color: #e0e0e0;  /* Color de fondo */
+  padding: 20px;
+  border-radius: 10px;
+  width: 100%; /* Asegura que ocupe el 100% del espacio disponible */
+  max-width: 350px; /* Tamaño máximo de la imagen */
+  display: flex;  
+  justify-content: center; 
+  align-items: center;
+}
 
-  
+/* Ajustes para que la imagen no se desborde */
+#board img {
+  max-width: 100%; 
+  height: auto; 
+}
+
+/* Estilos para los formularios */
+form {
+  width: 100%;
+  max-width: 350px; /* Asegura que los formularios no se hagan más grandes de lo necesario */
+  display: flex;
+  flex-direction: column;
+  gap: 20px; /* Espacio entre las opciones */
+}
+
+/* Espaciado y estilo de los botones */
+button {
+  width: 100%; /* Hace que los botones ocupen el 100% del contenedor */
+  padding: 12px;
+  font-size: 16px;
+}
+
+/* Media Query para pantallas pequeñas */
+@media (max-width: 768px) {
+  #container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  /* Ajuste de los formularios para pantallas pequeñas */
+  form {
+    width: 90%; /* Hace que los formularios ocupen más espacio */
+    max-width: none; /* Permite que ocupe el espacio disponible */
+  }
+
+  /* Mejora la visibilidad de las opciones */
+  label {
+    font-size: 16px;
+  }
+
+  button {
+    font-size: 18px; /* Aumenta el tamaño de los botones en pantallas pequeñas */
+  }
+}

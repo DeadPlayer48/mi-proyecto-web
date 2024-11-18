@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="js/script.js" defer></script>
+  <link rel="stylesheet" href="styles.css">
+  <title>OVA 1</title>
+
+</head>
+<body>
+  <!-- Contenedor principal -->
+  <div id="container">
+    <!-- Imagen que irá al lado del formulario -->
+    <div id="board">
+      <img id="avatar" src="img/avatar0.svg" alt="Imagen de ejemplo">
+    </div>
+    
+    <!-- Formulario a la derecha de la imagen -->
+    <form id="form">
+      <label><input type="radio" name="option" value="1"> Opción 1</label>
+      <label><input type="radio" name="option" value="2"> Opción 2</label>
+      <label><input type="radio" name="option" value="3"> Opción 3</label>
+      <label><input type="radio" name="option" value="4"> Opción 4</label>
+      <label><input type="radio" name="option" value="5"> Opción 5</label>
+      <button type="button" onclick="clearSelection()">Quitar Elección</button>
+    </form>
+  </div>
+
+</body>
+</html>

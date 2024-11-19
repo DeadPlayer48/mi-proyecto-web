@@ -19,18 +19,29 @@ document.getElementById('topic3Button').addEventListener('click', function() {
   
 // Función para mostrar el formulario correspondiente
 function showForm(formNumber) {
+    // Oculta todas las páginas y formularios
     document.getElementById('topicSelectionPage').classList.add('d-none');
     document.getElementById('formPage').classList.remove('d-none');
-  
+
     // Oculta todos los formularios
     for (let i = 1; i <= 3; i++) {
-        document.getElementById('form' + i).classList.add('d-none');
+        const form = document.getElementById('form' + i);
+        const formComingSoon = document.getElementById('form' + i + 'ComingSoon');
+        if (form) form.classList.add('d-none');
+        if (formComingSoon) formComingSoon.classList.add('d-none');
     }
-  
-    // Muestra el formulario seleccionado
-    document.getElementById('form' + formNumber).classList.remove('d-none');
+
+    // Muestra el formulario correspondiente
+    if (formNumber === 1) {
+        document.getElementById('form1').classList.remove('d-none');
+    } else if (formNumber === 2) {
+        document.getElementById('form2ComingSoon').classList.remove('d-none');
+    } else if (formNumber === 3) {
+        document.getElementById('form3ComingSoon').classList.remove('d-none');
+    }
 }
-  
+
+
 // Función para cambiar el avatar
 function changeAvatar(optionNumber) {
     // Cambia el avatar
@@ -46,19 +57,13 @@ function changeAvatar(optionNumber) {
         }
     }
 }
-  
-// Función para mostrar/ocultar botón de audio
-function toggleAudioIcon(optionNumber, formNumber) {
-    const audioButton = document.getElementById('audioButton' + formNumber + optionNumber);
-    audioButton.classList.remove('d-none');
-}
-  
+
 // Función para reproducir audio
 function playAudio(audioId) {
     const audio = document.getElementById(audioId);
     audio.play();
 }
-  
+
 // Función para limpiar la selección
 function clearSelection() {
     const radios = document.querySelectorAll('input[type="radio"]');
@@ -71,3 +76,30 @@ function clearSelection() {
     // Devuelve el avatar a su estado inicial
     document.getElementById('avatar').src = 'img/avatar_0.svg';
 }
+
+// Función para volver al inicio desde cualquier página
+// Función para volver al inicio desde cualquier página
+// Función para volver al inicio desde cualquier página
+// Función para volver al inicio desde cualquier página
+function goBackToStart() {
+    // Ocultar las páginas de formularios
+    document.getElementById("formPage").classList.add("d-none");
+    document.getElementById("topicSelectionPage").classList.add("d-none");
+    
+    // Mostrar la página de inicio
+    document.getElementById("startPage").classList.remove("d-none");
+}
+
+
+// Asignar el evento "volver al inicio" a todos los botones correspondientes
+document.querySelectorAll(".backToStartButton").forEach(button => {
+    button.addEventListener("click", goBackToStart);
+});
+
+// Evento para los botones "Volver al inicio" en los formularios
+document.querySelectorAll(".backToStartButtonForm").forEach(button => {
+    button.addEventListener("click", function() {
+        goBackToStart(); // Llamar la función para regresar al inicio
+    });
+});
+
